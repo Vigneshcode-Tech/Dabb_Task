@@ -1,7 +1,78 @@
-echo "# Dabb_Task" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin https://github.com/Vigneshcode-Tech/Dabb_Task.git
-git push -u origin main
+# Payment & Notification Dashboard
+
+A lightweight admin dashboard built with **FastAPI** that allows administrators to:
+
+- Create **Razorpay** payment links for users.
+- Send **push notifications** via **OneSignal**.
+
+This tool combines payment and messaging workflows into a simple web interface powered by HTML, CSS (Bootstrap), and REST APIs.
+
+---
+
+## Project Structure
+
+Dabb_Task/
+├── app/
+│   ├── routers/
+│   │   ├── onesignal_routes.py  # Handles notification logic
+│   │   └── razorpay_routes.py   # Handles payment link creation
+│   ├── static/css/
+│   │   └── style.css            # Custom dashboard styling
+│   ├── templates/
+│   │   └── dashboard.html       # Main frontend UI
+│   ├── config.py                # Configuration handling
+│   └── main.py                  # FastAPI entry point
+├── .env                         # Environment variables (secret keys)
+├── requirements.txt             # Python dependencies
+└── README.md                    # Project documentation
+
+## Features
+
+- Generate **Razorpay** payment links dynamically from the dashboard.
+- Send **OneSignal** push notifications with a title and message.
+- Clean, responsive UI using **Bootstrap 5**.
+- Simple JSON API responses for easy debugging and integration.
+
+## Tech Stack
+
+- **Backend:** FastAPI (Python)
+- **Frontend:** HTML5, Bootstrap 5
+- **APIs:** Razorpay, OneSignal
+- **Deployment:** Localhost (dev).
+
+## Setup Instructions
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/your-username/Dabb_Task.git
+cd Dabb_Task
+```
+
+### 2. Create Virtual Environment & Install Dependencies
+```bash
+python -m venv venv
+# On Mac/Linux
+source venv/bin/activate
+# On Windows
+venv\Scripts\activate
+
+pip install -r requirements.txt
+```
+
+### 3. Add Environment Variables
+Create a `.env` file in the project root and add:
+```env
+RAZORPAY_KEY=your_razorpay_key
+RAZORPAY_SECRET=your_razorpay_secret
+ONESIGNAL_APP_ID=your_onesignal_app_id
+ONESIGNAL_API_KEY=your_onesignal_api_key
+```
+
+### 4. Run the Application
+```bash
+uvicorn app.main:app --reload
+```
+
+---
+**Author:** Vignesh Natchimuthu
+
