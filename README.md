@@ -14,29 +14,34 @@ This tool combines payment and messaging workflows into a simple web interface p
 Dabb_Task/
 ├── app/
 │   ├── routers/
-│   │   ├── onesignal_routes.py  # Handles notification logic
-│   │   └── razorpay_routes.py   # Handles payment link creation
-│   ├── static/css/
-│   │   └── style.css            # Custom dashboard styling
+│   │   ├── onesignal_routes.py    # Handles notification logic
+│   │   └── razorpay_routes.py     # Handles payment link creation
+│   ├── static/
+│   │   ├── css/
+│   │   │   └── style.css          # Custom dashboard styling
+│   │   └── js/
+│   │       ├── OneSignalSDKWorker.js   # OneSignal service worker file
+│   │       └── OneSignalSDK.sw.js      # OneSignal service worker file
 │   ├── templates/
-│   │   └── dashboard.html       # Main frontend UI
-│   ├── config.py                # Configuration handling
-│   └── main.py                  # FastAPI entry point
+│   │   └── dashboard.html         # Main frontend UI
+│   ├── config.py                  # Configuration handling
+│   └── main.py                   # FastAPI entry point
 ├── .env                         # Environment variables (secret keys)
 ├── requirements.txt             # Python dependencies
 └── README.md                    # Project documentation
+
 
 ## Features
 
 - Generate **Razorpay** payment links dynamically from the dashboard.
 - Send **OneSignal** push notifications with a title and message.
-- Clean, responsive UI using **Bootstrap 5**.
+- Clean, responsive UI .
 - Simple JSON API responses for easy debugging and integration.
 
 ## Tech Stack
 
 - **Backend:** FastAPI (Python)
-- **Frontend:** HTML5, Bootstrap 5
+- **Frontend:** HTML5,CSS3, Bootstrap 5
 - **APIs:** Razorpay, OneSignal
 - **Deployment:** Localhost (dev).
 
@@ -44,7 +49,7 @@ Dabb_Task/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/your-username/Dabb_Task.git
+git clone https://github.com/Vigneshcode-Tech/Dabb_Task.git
 cd Dabb_Task
 ```
 
@@ -54,16 +59,16 @@ python -m venv venv
 # On Mac/Linux
 source venv/bin/activate
 # On Windows
-venv\Scripts\activate
+venv\Scripts\activate.bat
 
 pip install -r requirements.txt
 ```
 
 ### 3. Add Environment Variables
 Create a `.env` file in the project root and add:
-```env
-RAZORPAY_KEY=your_razorpay_key
-RAZORPAY_SECRET=your_razorpay_secret
+```bash
+RAZORPAY_KEY_ID=your_razorpay_key
+RAZORPAY_KEY_SECRET=your_razorpay_secret
 ONESIGNAL_APP_ID=your_onesignal_app_id
 ONESIGNAL_API_KEY=your_onesignal_api_key
 ```
