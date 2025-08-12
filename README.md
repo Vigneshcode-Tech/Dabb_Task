@@ -64,14 +64,29 @@ venv\Scripts\activate.bat
 pip install -r requirements.txt
 ```
 
-### 3. Add Environment Variables
-Create a `.env` file in the project root and add:
-```bash
-RAZORPAY_KEY_ID=your_razorpay_key
-RAZORPAY_KEY_SECRET=your_razorpay_secret
-ONESIGNAL_APP_ID=your_onesignal_app_id
-ONESIGNAL_API_KEY=your_onesignal_api_key
-```
+
+## 3. API Endpoints
+
+**Endpoint** `/send-notification`  
+**Method:** POST  
+**Description:** Sends a push notification using OneSignal.  
+**Request Parameters (Form Data):**  
+- `title` (string): Notification title  
+- `description` (string): Notification message content  
+
+**Response:** JSON indicating success or failure of the notification request.
+
+---
+
+**Endpoint** `/create-payment-link`  
+**Method:** POST  
+**Description:** Creates a payment link using Razorpay's API.  
+**Request Parameters (Form Data or JSON):**  
+- `amount` (number): Amount in INR (decimal)  
+- `mobile_number` (string): Customer's contact number  
+
+**Response:** JSON containing the payment link and related info.
+
 
 ### 4. Run the Application
 ```bash

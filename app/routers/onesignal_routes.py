@@ -4,8 +4,6 @@ from fastapi import APIRouter, Form, HTTPException
 from app.config import ONESIGNAL_APP_ID, ONESIGNAL_API_KEY
 from dotenv import load_dotenv
 
-
-
 router = APIRouter()
 
 @router.post("/send-notification")
